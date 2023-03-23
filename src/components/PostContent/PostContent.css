@@ -1,0 +1,13 @@
+.post-content-container {
+  display: flex;
+  background-color: antiquewhite;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  justify-content: center;
+}
+.post-input{
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-family: cursive;
+}

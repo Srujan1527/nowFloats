@@ -1,0 +1,12 @@
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
+  background-color: antiquewhite;
+}
+.nav-heading {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  margin-left: 20px;
+  font-size: 20px;
+}
