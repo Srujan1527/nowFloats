@@ -13,8 +13,10 @@ import {
   getFirestore,
   doc,
   getDoc,
+  getDocs,
   setDoc,
   onSnapshot,
+  collection,
 } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 const firebaseConfig = {
@@ -118,5 +120,11 @@ export const getDocumentFromCollection = async (id) => {
   }
 };
 
+export const getAllDocumentsFromCollection = async () => {
+  const collectionRef = collection(db, "users");
+  const docsSnap = await getDocs(collectionRef);
+  
+  return docsSnap;
+};
 
 export const auth = getAuth(app);

@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { listAll, ref, getDownloadURL } from "firebase/storage";
+
 import "./UserInfo.css";
 import { storage } from "../../utils/Firebase/firebase";
+import { FileViewer } from "../FileViewer/FileViewer";
 
 const UserInfo = ({ user }) => {
   const navigate = useNavigate();
   const [urls, setUrls] = useState([]);
-
+  const [urlExtensions, setUrlExtensions] = useState([]);
+  var extensionsArray = [];
   const [isUser, setIsUser] = useState(false);
   if (user === null) {
     setIsUser(true);
@@ -32,6 +35,13 @@ const UserInfo = ({ user }) => {
 
         Promise.all(promises).then((urls) => {
           setUrls(urls);
+          urls.forEach((each) => {
+            const extensionList = each.split("?");
+            const extension = extensionList[0].split(".").pop();
+            extensionsArray.push(extension);
+
+            setUrlExtensions(extensionsArray);
+          });
         });
       })
       .catch((error) => {
@@ -39,6 +49,7 @@ const UserInfo = ({ user }) => {
       });
   };
   console.log(urls);
+  console.log(urlExtensions);
 
   const goBack = () => {
     navigate("/");
@@ -63,11 +74,12 @@ const UserInfo = ({ user }) => {
 
       <h1>Your Content</h1>
       <div className="items-container">
-        {urls.map((url) => (
+        <FileViewer urls={urls} urlExtensions={urlExtensions} />
+        {/* {urls.map((url) => (
           <div key={url}>
             <img src={url} alt="images" className="image" />
           </div>
-        ))}
+        ))} */}
       </div>
       <button type="button" onClick={goBack}>
         Back

@@ -4,13 +4,16 @@
   justify-content: center;
   align-items: center;
   min-height: 90vh;
+  background-color: rgb(190, 195, 195);
+  margin: 5px;
+  border-radius: 10px;
 }
 
-.content-heading{
-    font-family: "Roboto Condensed", sans-serif;
+.content-heading {
+  font-family: "Roboto Condensed", sans-serif;
 }
-.paragraph{
-    font-family: "Roboto Condensed", sans-serif;
-    font-size: 14px;
-    color:red
+.paragraph {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 14px;
+  color: red;
 }

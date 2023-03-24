@@ -45,7 +45,7 @@ const PostContent = () => {
   };
   return (
     <div data-testid="post-content" className="post-content-container">
-      <p className="paragraph">Please select only images </p>
+      <p className="paragraph">Please select only images and videos</p>
       <input type="file" onChange={handleChange} className="post-input" />
 
       <button onClick={handleUpload} className="button">
